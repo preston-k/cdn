@@ -1,11 +1,6 @@
 body {
   background-color: black;
-  font-color: white;
-}
-
-h1 {
+  color: white;
   font-family: Oswald;
-  font-size: 50px;
-  text-align: center;
-  font-color: white;
+  font-size: 200px;
 }
