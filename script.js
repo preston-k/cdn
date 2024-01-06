@@ -1,6 +1,6 @@
 document.getElementById('uploadButton').addEventListener('click', function() {
     let password = document.getElementById('passwordInput').value;
-    if (password === 'YOUR_PASSWORD') {  // Replace YOUR_PASSWORD with your actual password
+    if (password === '1234') {
         document.getElementById('fileInput').click();
     } else {
         alert('Incorrect password!');
