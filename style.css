@@ -1,6 +1,54 @@
 body {
   background-color: black;
   color: white;
-  font-family: Oswald;
-  font-size: 100px;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+.bold {
+  /* font-weight: bolder; */
+  text-decoration: underline;
+}
+.carousel-container {
+  font-family: Oswald, bold;
+  font-size: 60px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel {
+  white-space: nowrap;
+  animation: moveLeft 50s linear infinite;
+  display: flex;
+}
+
+.carousel-item {
+  padding: 10px;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.carousel .carousel-item {
+  width: 100%;
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.hover:hover {
+  color: #7ec8e3;
+  cursor: pointer;
+}
+#hr {
+  height: 3px;
+  background-color: white;
+  width: 20%;
 }
