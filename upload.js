@@ -1,5 +1,11 @@
-require('dotenv').config();
-const myToken = process.env.GITHUB_PAT;
+let myToken = '';
+
+document.getElementById('uploadButton').addEventListener('click', function() {
+  if (!myToken) {
+    myToken = prompt("Please enter your password");
+  }
+});
+
 let newFileName =''
 document.getElementById('uploadButton').addEventListener('click', function() {
   const fileInput = document.getElementById('fileInput');
