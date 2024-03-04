@@ -1,5 +1,5 @@
 document.getElementById('uploadButton').addEventListener('click', function() {
-  let myToken = prompt("Please enter your GitHub token:");
+  let myToken = prompt("Please enter your password:");
   const fileInput = document.getElementById('fileInput');
   if (fileInput.files.length > 0) {
     const file = fileInput.files[0];
