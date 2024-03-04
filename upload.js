@@ -1,14 +1,15 @@
 document.getElementById('uploadButton').addEventListener('click', function() {
-  let myToken = prompt("Please enter your password:");
-  const fileInput = document.getElementById('fileInput');
+  let myToken = prompt("Please enter your password:")
+  const fileInput = document.getElementById('fileInput')
   if (fileInput.files.length > 0) {
-    const file = fileInput.files[0];
-    const uuid = crypto.randomUUID();
-    let newFileName = `${uuid}.png`;
-
-    uploadToGitHub(file, newFileName, myToken);
+    const file = fileInput.files[0]
+    const uuid = crypto.randomUUID()
+    let fileExtension = file.name.split('.').pop()
+    let newFileName = `${uuid}.${fileExtension}`
+    uploadToGitHub(file, newFileName, myToken)
   }
 });
+
 function uploadToGitHub(file, fileName, token) {
   let ts = new Date().toString();
   const reader = new FileReader();
