@@ -4,12 +4,36 @@
 <meta charset="UTF-8">
 <title>CDN Upload</title>
 <link rel="icon" href="https://cdn.prestonkwei.com/personalwebsitefavicon.png">
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Poppins">
 </head>
+<style>
+  body {
+    background-color: black;
+    color: white;
+    font-family: 'Poppins';
+  }
+  input {
+    font-family: 'Poppins';
+  }
+  button {
+    background-color: black;
+    color: white;
+    font-family: 'Poppins';
+    border: 2px solid white;
+  }
+  #container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
 <body>
-
-  <input type="file" id="fileInput" accept="image/*">
-  <button id="uploadButton">Upload</button>
-
+  <div id='container'>
+    <input type="file" id="fileInput" accept="image/*">
+    <br>
+    <button id="uploadButton">Upload</button>
+  </div>
   <script src="upload.js"></script>
 </body>
 </html>
