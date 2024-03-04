@@ -27,12 +27,36 @@
     margin-left: auto;
     margin-right: auto;
   }
+  #fileInput {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Poppins';
+  }
+  #title {
+    text-align: center;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 36px;
+  }
+  #uploadButton {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50px;
+    width: 25%;
+    font-size: 20px;
+    cursor: pointer;
+  }
 </style>
 <body>
+  <h1 id='title'>CDN File Upload</h1>
   <div id='container'>
-    <input type="file" id="fileInput">
-    <br>
-    <button id="uploadButton">Upload</button>
+    <form id='uploadform'>
+      <input type="file" id="fileInput" required>
+      <br>
+      <button id="uploadButton">Upload</button>
+    </form>
   </div>
   <script src="upload.js"></script>
 </body>
