@@ -1,9 +1,10 @@
+const newFileName = ''
 document.getElementById('uploadButton').addEventListener('click', function() {
   const fileInput = document.getElementById('fileInput');
   if (fileInput.files.length > 0) {
     const file = fileInput.files[0];
     const uuid = crypto.randomUUID();
-    const newFileName = `${uuid}.png`;
+    newFileName = `${uuid}.png`;
 
     uploadToGitHub(file, newFileName);
   }
@@ -27,7 +28,7 @@ function uploadToGitHub(file, fileName) {
     .then(response => response.json())
     .then(data => {
       console.log('Success:', data);
-      alert('File uploaded successfully!');
+      alert('File uploaded successfully! You can access it at cdn.prestonkwei.com/'+newFileName);
     })
     .catch((error) => {
       console.error('Error:', error);
