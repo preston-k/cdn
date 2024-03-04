@@ -9,8 +9,8 @@ document.getElementById('uploadButton').addEventListener('click', function() {
     uploadToGitHub(file, newFileName, myToken);
   }
 });
-
 function uploadToGitHub(file, fileName, token) {
+  let ts = new Date().toString();
   const reader = new FileReader();
   reader.onload = function() {
     const content = reader.result.split(',')[1];
@@ -21,7 +21,7 @@ function uploadToGitHub(file, fileName, token) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        message: `uploading ${fileName}`,
+        message: `Uploaded ${fileName} at ${ts}`,
         content: content
       })
     })
