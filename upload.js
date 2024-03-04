@@ -1,3 +1,5 @@
+require('dotenv').config();
+const myToken = process.env.GITHUB_PAT;
 let newFileName =''
 document.getElementById('uploadButton').addEventListener('click', function() {
   const fileInput = document.getElementById('fileInput');
@@ -17,7 +19,7 @@ function uploadToGitHub(file, fileName) {
     fetch('https://api.github.com/repos/preston-k/cdn/contents/' + fileName, {
       method: 'PUT',
       headers: {
-        'Authorization': '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',
+        'Authorization': myToken,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
