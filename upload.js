@@ -1,4 +1,4 @@
-const newFileName = ''
+let newFileName =''
 document.getElementById('uploadButton').addEventListener('click', function() {
   const fileInput = document.getElementById('fileInput');
   if (fileInput.files.length > 0) {
@@ -17,7 +17,7 @@ function uploadToGitHub(file, fileName) {
     fetch('https://api.github.com/repos/preston-k/cdn/contents/' + fileName, {
       method: 'PUT',
       headers: {
-        'Authorization': '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',
+        'Authorization': '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',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
