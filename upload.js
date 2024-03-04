@@ -31,7 +31,9 @@ function uploadToGitHub(file, fileName, token) {
         alert('File not found. Make sure your repository exists and the token is correct.');
       } else {
         console.log('Success:', data);
-        alert('File uploaded successfully! You can access it at cdn.prestonkwei.com/'+ fileName);
+        navigator.clipboard.writeText('https://cdn.prestonkwei.com/' + fileName)
+        alert('File uploaded successfully! You can access it at cdn.prestonkwei.com/'+ fileName + '\n \n Files should take 1-2 minutes to propagate everywhere. Please be patient!');
+        
       }
     })
     .catch((error) => {
