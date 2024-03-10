@@ -1,5 +1,6 @@
-document.getElementById('uploadButton').addEventListener('click', function() {
-  let myToken = prompt("Please enter your password:");
+document.getElementById('uploadButton').addEventListener('click', function(event) {
+  event.preventDefault(); 
+  let myToken = prompt('Please enter your password:');
   const fileInput = document.getElementById('fileInput');
   if (fileInput.files.length > 0) {
     const file = fileInput.files[0];
@@ -31,9 +32,9 @@ function uploadToGitHub(file, fileName, token) {
         alert('File not found. Make sure your repository exists and the token is correct.');
       } else {
         console.log('Success:', data);
-        navigator.clipboard.writeText('https://cdn.prestonkwei.com/' + fileName)
-        alert('File uploaded successfully! You can access it at cdn.prestonkwei.com/'+ fileName + '\n \n Files should take 1-2 minutes to propagate everywhere. Please be patient!');
-        
+        navigator.clipboard.writeText('https://cdn.prestonkwei.com/' + fileName);
+        alert('File uploaded successfully! You can access it at cdn.prestonkwei.com/'+ fileName + '\n \nFiles should take 1-2 minutes to propagate everywhere. Please be patient!');
+        window.reload()
       }
     })
     .catch((error) => {
