@@ -1,0 +1,72 @@
+/* Margin Stuff */
+.pk-nm-b { /* No margin-bottom */
+  margin-bottom: 0;
+}
+.pk-nm-t { /* No margin-top */
+  margin-top: 0;
+}
+.pk-nm-r { /* No margin-right */
+  margin-right: 0;
+}
+.pk-nm-l { /* No margin-left */
+  margin-right: 0;
+}
+.pk-nm-tb { /* No margin-topbottom */
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.pk-nm-rl { /* No margin-rightleft */
+  margin-right: 0;
+  margin-left: 0;
+}
+/* Padding Stuff */
+.pk-np-b { /* No padding-bottom */
+  padding-bottom: 0;
+}
+.pk-np-t { /* No padding-top */
+  padding-top: 0;
+}
+.pk-np-r { /* No padding-right */
+  padding-right: 0;
+}
+.pk-np-l { /* No padding-left */
+  padding-right: 0;
+}
+.pk-np-tb { /* No padding-topbottom */
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.pk-np-rl { /* No padding-rightleft */
+  padding-right: 0;
+  padding-left: 0;
+}
+/* Font-Styling */
+.pk-fo-u { /* Underline */
+  text-decoration: underline;
+}
+.pk-fo-b { /* Bold */
+  font-weight: 700;
+}
+.pk-fo-i { /* Italics */
+  font-style: italic;
+}
+/* Flexbox */
+.pk-fb-hc { /* Horizontally Centered */
+  display: flex;
+  justify-content: center;
+}
+.pk-fb-vc { /* Vertically Centered */
+  display: flex;
+  align-items: center;
+}
+.pk-fb-ac { /* Vertically and Horizontally Centered */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Centering Using Block */
+.pk-bc-ce { /* Center Block item */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
