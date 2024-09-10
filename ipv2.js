@@ -1,3 +1,6 @@
+if (window.location.href.includes('.com')) {
+  console.log = function() {}
+}
 const firebaseConfig = {
   apiKey: 'AIzaSyC2ZPhWKPAT6hahxFelmak8fax2NMFhA3I',
   authDomain: 'ipblocks.firebaseapp.com',
@@ -10,6 +13,7 @@ firebase.initializeApp(firebaseConfig)
 let database = firebase.database()
 
 
-database.ref('/ip/').update({
-  ip: 'ff'
+database.ref('/blocks/').once('value').then((snapshot) => {
+  console.log(snapshot.val())
+  
 })
