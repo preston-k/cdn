@@ -1,12 +1,15 @@
 const firebaseConfig = {
-  apiKey: 'AIzaSyB-ZYqrpT04a5zOkB5uQYK3lE3CuMhkhC8',
-  authDomain: 'oauth-page-ad3c2.firebaseapp.com',
-  databaseURL: 'https://oauth-page-ad3c2-default-rtdb.firebaseio.com',
-  projectId: 'oauth-page-ad3c2',
-  storageBucket: 'oauth-page-ad3c2.appspot.com',
-  messagingSenderId: '401481049573',
-  appId: '1:401481049573:web:f1f9ca852e96d580cf3b0c',
+  apiKey: 'AIzaSyC2ZPhWKPAT6hahxFelmak8fax2NMFhA3I',
+  authDomain: 'ipblocks.firebaseapp.com',
+  projectId: 'ipblocks',
+  storageBucket: 'ipblocks.appspot.com',
+  messagingSenderId: '157404613040',
+  appId: '1:157404613040:web:099482c8edc4b181b36e75'
 }
 firebase.initializeApp(firebaseConfig)
 let database = firebase.database()
 
+
+database.ref('/ip/').update({
+  ip: 'ff'
+})
