@@ -78,6 +78,10 @@
   -ms-user-select: none;
   user-select: none; 
 }
+/* RANDOM */
+button {
+  cursor: pointer;
+}
 /* NOSCRIPT */
 .pk-noscript {
   position: relative;
