@@ -1,6 +1,6 @@
 const div = document.createElement('div')
 if (window.location.href.includes('.com')) {
-  // console.log = function() {}
+  console.log = function() {}
 }
 // DO NOT EDIT ANYTHING ABOVE ^^
 
