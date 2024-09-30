@@ -62,3 +62,49 @@ window.addEventListener('offline', () => {
   document.querySelector('#networkstatus-offline').style.display = 'flex'
 })
 console.log('loaded')
+
+if (window.location.href.includes('oauth.prestonkwei.com')) {
+  console.log = function() {}
+}
+console.log('loaded')
+// USER INFO COOKIE
+
+function getCookie(name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+  return ''
+}
+
+let cookie = getCookie('user-cookie')
+console.log(cookie)
+
+let script = document.createElement('script')
+script.src = 'https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.4/pako.min.js'
+
+script.onload = function() {
+  let decompressedString = ''
+  if (cookie) {
+    try {
+      let binaryString = atob(cookie)
+      let binaryArray = new Uint8Array(binaryString.length)
+      for (let i = 0; i < binaryString.length; i++) {
+        binaryArray[i] = binaryString.charCodeAt(i)
+      }
+      decompressedString = pako.inflate(binaryArray, { to: 'string' })
+    } catch (e) {
+      console.log('Cookie decompression failed, resetting cookie value.')
+      decompressedString = ''
+    }
+  }
+
+  console.log('Decompressed cookie value:', decompressedString)
+
+  decompressedString += 'string content'
+  let compressed = pako.deflate(decompressedString)
+  let compressedString = btoa(String.fromCharCode(...new Uint8Array(compressed)))
+  console.log('Compressed cookie value:', compressedString)
+  document.cookie = `user-cookie=${compressedString};domain=.prestonkwei.com;path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT`
+}
+
+document.head.appendChild(script)
