@@ -11,7 +11,7 @@ div.innerHTML = `
     <p class='network-status-main'>You're offline! Any changes will not be saved.</p>
   </div>
   <div class='network-status' id='networkstatus-online'>
-    <p class='network-status-main'>You are back online! We are syncing your changes</p>
+    <p class='network-status-main'>You are back online! We are syncing your changes.</p>
   </div>
 `
 document.querySelector('body').appendChild(div)
