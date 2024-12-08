@@ -1,4 +1,4 @@
- const div = document.createElement('div')
+const div = document.createElement('div')
 if (window.location.href.includes('.com')) {
   console.log = function() {}
 }
@@ -81,15 +81,17 @@ script.src = 'https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.4/pako.min.js'
 script.onload = function() {
   let value
   if (!cookie) {
-    value = {init: {ms: Date.now(), rd:new Date()}, id: crypto.randomUUID()}
+    value = { init: { ms: Date.now(), rd: new Date(), first: window.location.href }, id: crypto.randomUUID() }
+    console.log('cookie doesnt exist, created!')
   } else {
-    value = JSON.parse(cookie)
+    console.log('cookie exists')
+    const decodedCookie = Uint8Array.from(atob(cookie), c => c.charCodeAt(0))
+    value = JSON.parse(pako.inflate(decodedCookie, { to: 'string' }))
   }
   console.log(value)
 
-
-  // LAST DO NOT PUT ANYTHING AFTER THIS
-  value = JSON.stringify(value)
+// LAST DO NOT PUT ANYTHING AFTER THIS
+value = btoa(String.fromCharCode(...pako.deflate(JSON.stringify(value))))
   document.cookie = `user-cookie=${value};domain=.prestonkwei.com;path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT`
   document.cookie = `user-cookie=${value};path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT`
 }
