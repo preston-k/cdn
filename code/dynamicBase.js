@@ -93,7 +93,7 @@ script.onload = function() {
 // LAST DO NOT PUT ANYTHING AFTER THIS
 value = btoa(String.fromCharCode(...pako.deflate(JSON.stringify(value))))
   document.cookie = `user-cookie=${value};domain=.prestonkwei.com;path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT`
-  document.cookie = `user-cookie=${value};path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT`
+ 
 }
 
 document.head.appendChild(script)
