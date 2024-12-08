@@ -1,4 +1,4 @@
-const div = document.createElement('div')
+ const div = document.createElement('div')
 if (window.location.href.includes('.com')) {
   console.log = function() {}
 }
@@ -61,13 +61,11 @@ window.addEventListener('offline', () => {
   document.querySelector('#networkstatus-online').style.display = 'none'
   document.querySelector('#networkstatus-offline').style.display = 'flex'
 })
-console.log('loaded')
 
 if (window.location.href.includes('oauth.prestonkwei.com')) {
   console.log = function() {}
 }
 console.log('loaded')
-// USER INFO COOKIE
 
 function getCookie(name) {
   const value = `; ${document.cookie}`
@@ -77,34 +75,23 @@ function getCookie(name) {
 }
 
 let cookie = getCookie('user-cookie')
-console.log(cookie)
-
 let script = document.createElement('script')
 script.src = 'https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.4/pako.min.js'
 
 script.onload = function() {
-  let decompressedString = ''
-  if (cookie) {
-    try {
-      let binaryString = atob(cookie)
-      let binaryArray = new Uint8Array(binaryString.length)
-      for (let i = 0; i < binaryString.length; i++) {
-        binaryArray[i] = binaryString.charCodeAt(i)
-      }
-      decompressedString = pako.inflate(binaryArray, { to: 'string' })
-    } catch (e) {
-      console.log('Cookie decompression failed, resetting cookie value.')
-      decompressedString = ''
-    }
+  let value
+  if (!cookie) {
+    value = {init: {ms: Date.now(), rd:new Date()}, id: crypto.randomUUID()}
+  } else {
+    value = JSON.parse(cookie)
   }
+  console.log(value)
 
-  console.log('Decompressed cookie value:', decompressedString)
 
-  decompressedString += 'string content'
-  let compressed = pako.deflate(decompressedString)
-  let compressedString = btoa(String.fromCharCode(...new Uint8Array(compressed)))
-  console.log('Compressed cookie value:', compressedString)
-  document.cookie = `user-cookie=${compressedString};domain=.prestonkwei.com;path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT`
+  // LAST DO NOT PUT ANYTHING AFTER THIS
+  value = JSON.stringify(value)
+  document.cookie = `user-cookie=${value};domain=.prestonkwei.com;path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT`
+  document.cookie = `user-cookie=${value};path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT`
 }
 
 document.head.appendChild(script)
