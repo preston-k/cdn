@@ -1,6 +1,6 @@
 const div = document.createElement('div')
 if (window.location.href.includes('.com')) {
-  console.log = function() {}
+  console.log = function () {}
 }
 // DO NOT EDIT ANYTHING ABOVE ^^
 
@@ -53,7 +53,6 @@ window.addEventListener('online', () => {
   setTimeout(() => {
     document.querySelector('#networkstatus-online').style.display = 'none'
   }, waitCount)
-  
 })
 
 window.addEventListener('offline', () => {
@@ -63,7 +62,7 @@ window.addEventListener('offline', () => {
 })
 
 if (window.location.href.includes('oauth.prestonkwei.com')) {
-  console.log = function() {}
+  console.log = function () {}
 }
 console.log('loaded')
 
@@ -78,22 +77,48 @@ let cookie = getCookie('user-cookie')
 let script = document.createElement('script')
 script.src = 'https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.4/pako.min.js'
 
-script.onload = function() {
+script.onload = function () {
   let value
   if (!cookie) {
     value = { init: { ms: Date.now(), rd: new Date(), first: window.location.href }, id: crypto.randomUUID() }
     console.log('cookie doesnt exist, created!')
   } else {
     console.log('cookie exists')
-    const decodedCookie = Uint8Array.from(atob(cookie), c => c.charCodeAt(0))
+    const decodedCookie = Uint8Array.from(atob(cookie), (c) => c.charCodeAt(0))
     value = JSON.parse(pako.inflate(decodedCookie, { to: 'string' }))
   }
   console.log(value)
 
-// LAST DO NOT PUT ANYTHING AFTER THIS
-value = btoa(String.fromCharCode(...pako.deflate(JSON.stringify(value))))
+  // LAST DO NOT PUT ANYTHING AFTER THIS
+  value = btoa(String.fromCharCode(...pako.deflate(JSON.stringify(value))))
   document.cookie = `user-cookie=${value};domain=.prestonkwei.com;path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT`
- 
 }
 
 document.head.appendChild(script)
+
+// GET POLCIY DIVS
+if (document.querySelectorAll('.policy-dark').length > 0) {
+  let policystyle = `
+  <style>
+    .policy-dark {
+      font-size: 10px;
+      color: white;
+      font-family: 'Poppins', sans-serif !important;
+      position: fixed;
+      bottom: 10px; 
+      right: 10px;
+
+    }
+    .policy-dark a {
+      color: #5db8ff;
+    }
+    .policy-dark a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  `
+  document.body.insertAdjacentHTML('beforebegin', policystyle)
+  document.querySelectorAll('.policy-dark').forEach((el) => {
+    el.innerHTML = `By accessing this site, you agree to be bound by our <a href='https://legal.prestonkwei.com/policies/tos' target='_blank'>terms of service</a> and <a href='https://legal.prestonkwei.com/policies/privacy' target='_blank'>privacy policy</a>.`
+  })
+}
