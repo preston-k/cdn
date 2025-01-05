@@ -101,7 +101,6 @@ if (document.querySelectorAll('.policy-dark').length > 0) {
   let policystyle = `
   <style>
     .policy-dark {
-      z-index: 9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999 !important;
       font-size: 10px;
       color: white;
       font-family: 'Poppins', sans-serif !important;
@@ -121,5 +120,34 @@ if (document.querySelectorAll('.policy-dark').length > 0) {
   document.body.insertAdjacentHTML('beforebegin', policystyle)
   document.querySelectorAll('.policy-dark').forEach((el) => {
     el.innerHTML = `By accessing this site, you agree to be bound by our <a href='https://legal.prestonkwei.com/policies/tos' target='_blank'>terms of service</a> and <a href='https://legal.prestonkwei.com/policies/privacy' target='_blank'>privacy policy</a>.`
+  })
+}
+
+if (document.querySelectorAll('.pk-modal-full').length > 0) {
+  let modalstyle = `
+  <style>
+    .pk-modal-wrap-dark-gbdid {
+      width: 100vw;
+      height: 100vh;
+      background-color: rgb(0,0,0,.5); 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .pk-modal-full {
+      width: 50%;
+      height: 50%;
+      border: 2px solid black;
+      border-radius: 15px;
+      background-color: rgb(255,255,255);
+    }
+  </style>
+  `
+  document.body.insertAdjacentHTML('beforebegin', modalstyle)
+  document.querySelectorAll('.pk-modal-full').forEach((el) => {
+    let wrapper = document.createElement('div')
+    wrapper.className = 'pk-modal-wrap-dark-gbdid'
+    el.parentNode.insertBefore(wrapper, el)
+    wrapper.appendChild(el)
   })
 }
